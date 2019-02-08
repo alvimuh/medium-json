@@ -36,7 +36,7 @@ module.exports = (endpoint = '/', callback) => {
             .map(key => data.payload.references.Post[key]);
 
         if (posts) {
-          const result = { status: 200, response: posts };
+          const result = { response: posts };
           callback instanceof Function && callback(result);
           resolve(result);
         } else {
