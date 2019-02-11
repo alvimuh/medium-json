@@ -36,9 +36,9 @@ module.exports = (endpoint = '/', callback) => {
             .map(key => data.payload.references.Post[key]);
 
         if (posts) {
-          const result = posts;
+          const result = { status: 200, response: posts };
           callback instanceof Function && callback(result);
-          resolve(result);
+          resolve(result);const result = { status: 200, response: posts };
         } else {
           fail(500, 'Could not parse the resource. Medium\'s JSON format might have changed.', reject, callback);
         }
